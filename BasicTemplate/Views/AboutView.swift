@@ -12,9 +12,9 @@ struct AboutView: View {
         NavigationView {
             Form {
                 Section(header: Text("Contact Us")) {
-                    _amTemplateOptionalClosure("TWITTER_LINK", default: "https://www.twitter.com/AppMakerIOS") { link in
+                    if AM_SHOW_TWITTER {
                         Button(action: {
-                            UIApplication.shared.open(URL(string: link)!)
+                            UIApplication.shared.open(URL(string: AM_TWITTER_LINK)!)
                         }, label: {
                             HStack {
                                 Image("Twitter").resizable().frame(width: 24, height: 24)
@@ -22,9 +22,9 @@ struct AboutView: View {
                             }
                         })
                     }
-                    _amTemplateOptionalClosure("INSTAGRAM_LINK", default: "https://www.instagram.com/appmakerios") { link in
+                    if AM_SHOW_INSTAGRAM {
                         Button(action: {
-                            UIApplication.shared.open(URL(string: link)!)
+                            UIApplication.shared.open(URL(string: AM_INSTAGRAM_LINK)!)
                         }, label: {
                             HStack {
                                 Image("Instagram").resizable().frame(width: 24, height: 24)
@@ -32,9 +32,9 @@ struct AboutView: View {
                             }
                         })
                     }
-                    _amTemplateOptionalClosure("SOUNDCLOUD_LINK", default: "https://www.soundcloud.com/") { link in
+                    if AM_SHOW_SOUNDCLOUD {
                         Button(action: {
-                            UIApplication.shared.open(URL(string: link)!)
+                            UIApplication.shared.open(URL(string: AM_SOUNDCLOUD_LINK)!)
                         }, label: {
                             HStack {
                                 Image("SoundCloud").resizable().frame(width: 24, height: 24)
@@ -42,9 +42,9 @@ struct AboutView: View {
                             }
                         })
                     }
-                    _amTemplateOptionalClosure("WEBSITE_LINK", default: "https://www.appmakerios.com/") { link in
+                    if AM_SHOW_WEBSITE {
                         Button(action: {
-                            UIApplication.shared.open(URL(string: link)!)
+                            UIApplication.shared.open(URL(string: AM_WEBSITE_LINK)!)
                         }, label: {
                             HStack {
                                 Image(systemName: "link.circle")
@@ -54,8 +54,8 @@ struct AboutView: View {
                     }
                 }
                 Section(header: Text("Info")) {
-                    Text(_amTemplateValue("APP_DESCRIPTION", default: "This is a template app."))
-                    Text(_amTemplateValue("CURRENT_YEAR", default: "Created in 2021"))
+                    Text(AM_APP_DESCRIPTION)
+                    Text("Created in ") + Text(AM_YEAR_CREATED).bold()
                 }
                 VStack(alignment: .center) {
                     PoweredByAppMakerView()

@@ -12,8 +12,8 @@ struct MapView: View {
     
     @State private var coordinateRegion = MKCoordinateRegion(
         center: CLLocationCoordinate2D(
-            latitude: _amTemplateValue("LATITUDE", default: 37.3348),
-            longitude: _amTemplateValue("LONGITUDE", default: -122.0090)
+            latitude: AM_LATITUDE,
+            longitude: AM_LONGITUDE
         ),
         span: MKCoordinateSpan(
             latitudeDelta: 0.01,

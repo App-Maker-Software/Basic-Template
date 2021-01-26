@@ -12,10 +12,10 @@ struct HomeView: View {
         NavigationView {
             VStack {
                 Group {
-                    _amTemplateValue("APP_ICON", default: Image(systemName: "app")).padding()
+                    AM_APP_ICON.padding()
                     (Text("Welcome to ")
                         +
-                        Text(_amTemplateValue("APP_NAME", default: "app name")).bold().underline()
+                        Text(AM_APP_NAME).bold().underline()
                         +
                         Text(".")
                     )
@@ -25,16 +25,14 @@ struct HomeView: View {
                 Group {
                     (Text("A real iOS app made entirely on my ")
                         +
-                        Text(_amTemplateValue("DEVICE_TYPE", default: "iPhone")).bold().underline()
+                        Text(AM_DEVICE_TYPE).bold().underline()
                         +
                         Text(".")
                     )
                 }.font(.body)
                 Spacer()
                 Text("Like it?")
-                _amTemplateOptionalClosure("LIVE_APP_SMS_LINK", default: "sms:&body=https://www.liveapp.cc/") { link in
-                    Link("Share with a friend!", destination: URL(string: link)!)
-                }
+                Link("Share with a friend!", destination: URL(string: AM_LIVE_APP_SMS_LINK)!)
                 Spacer()
             }
         }.navigationViewStyle(StackNavigationViewStyle())

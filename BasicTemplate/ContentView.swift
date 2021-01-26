@@ -11,7 +11,9 @@ struct ContentView: View {
     var body: some View {
         TabView {
             HomeView().tabItem { Label("Home", systemImage: "house") }
-            _amTemplateOptionalValue("HAS_MAP", default: MapView().tabItem { Label("Map", systemImage: "map") })
+            if AM_SHOW_MAP {
+                MapView().tabItem { Label("Map", systemImage: "map") }
+            }
             AboutView().tabItem { Label("About", systemImage: "info") }
         }
     }
