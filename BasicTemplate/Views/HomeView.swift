@@ -12,7 +12,7 @@ struct HomeView: View {
         NavigationView {
             VStack {
                 Group {
-                    AM_APP_ICON.padding()
+                    AM_APP_ICON.resizable().scaledToFit().frame(width: 83.5).padding()
                     (Text("Welcome to ")
                         +
                         Text(AM_APP_NAME).bold().underline()
